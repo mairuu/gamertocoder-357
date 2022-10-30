@@ -1,0 +1,136 @@
+.minigames__section {
+  position: relative;
+
+  padding-top: 10rem;
+  padding-bottom: 8rem;
+}
+
+.minigame--title {
+  border-left: 1rem solid white;
+  padding-left: 1rem;
+  margin-top: 4rem;
+}
+
+.minigame {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 600px) {
+  .minigame {
+    grid-template-columns: 3fr 1fr;
+  }
+
+  .minigame__top {
+    grid-row-start: 1;
+
+    grid-column-start: 2;
+  }
+
+  .minigame__bot {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+}
+
+.minigame__top--icon > img {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.minigame__bot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.minigame__preview {
+  position: relative;
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.minigame__preview::before {
+  content: '';
+  position: absolute;
+  inset: 0px;
+
+  background-repeat: no-repeat;
+  background-image: var(--image-url);
+  background-size: cover;
+  background-color: rgb(5, 6, 11);
+}
+
+.minigame__preview--items {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.minigame__preview--item {
+  position: relative;
+
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  cursor: pointer;
+
+  aspect-ratio: 16 / 9;
+  flex: 0 0 min(35%, 160px);
+
+  transition: transform 50ms ease-out;
+}
+
+.minigame__preview--item:hover {
+  transform: scale(0.95);
+}
+
+.minigame__preview--item.selected {
+  border: 3px solid white;
+}
+
+.minigame__preview--item::before {
+  content: '';
+  position: absolute;
+  inset: 0px;
+
+  background-repeat: no-repeat;
+  background-image: var(--image-url);
+  background-size: cover;
+}
+
+.minigame__top__genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.minigame--genre {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: rgb(255, 255, 255, 0.1);
+}
+
+.minigame--backdrop {
+  position: absolute;
+  top: 0;
+  height: 380px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.minigame--backdrop::before {
+  z-index: -1;
+  filter: blur(4px) brightness(0.4);
+  content: '';
+  position: absolute;
+  inset: 0px;
+  background-image: url('https://cdngarenanow-a.akamaihd.net/webth/cdn/garena/gamertocoder/bmg-wallpaper/02.jpg');
+}

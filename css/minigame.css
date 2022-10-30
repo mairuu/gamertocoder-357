@@ -1,0 +1,59 @@
+.minigames__container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 35%), 1fr));
+}
+
+.minigames__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.minigame__card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.minigame__card--backdrop::before {
+  content: '';
+  position: absolute;
+
+  filter: blur(12px);
+
+  inset: 0px;
+  background-size: cover;
+  background-image: var(--icon-url);
+}
+
+.minigame__card--icon {
+  aspect-ratio: 1;
+  position: relative;
+}
+
+.minigame__card__content {
+  position: relative;
+  z-index: 2;
+  padding: 1rem;
+  background-color: rgb(5, 6, 11, 0.2);
+}
+
+.minigame__card:hover .minigame__card--icon::before {
+  transform: scale(1.05);
+}
+
+.minigame__card--icon::before {
+  content: '';
+  position: absolute;
+
+  transition: transform 50ms;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+
+  inset: 0px;
+  background-size: cover;
+  background-image: var(--icon-url);
+}
