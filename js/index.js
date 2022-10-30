@@ -12,9 +12,17 @@ const __app_ctx = (() => {
     document.getElementById('main').append(__home_page({ minigames }));
   });
 
-  router.add_route('/minigame/', () => {
+  router.add_route('/minigames/', () => {
     document.getElementById('main').textContent = '';
-    document.getElementById('main').append(__minigames_page({ minigames }));
+
+    const minigames_header = document.createElement('h3');
+    minigames_header.textContent = 'มินิเกมส์';
+    minigames_header.style.setProperty('font-size', '1.75rem');
+
+    document
+      .getElementById('main')
+      .append(__minigames_page({ minigames, header: [minigames_header] }));
+    window.scrollTo({ top: 0 });
   });
 
   // mingame

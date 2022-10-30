@@ -221,6 +221,13 @@ img {
   background-size: cover;
   background-image: var(--icon-url);
 }
+
+.minigame--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .hilight--game-name {
   border-left: 1rem solid white;
   padding-left: 1rem;

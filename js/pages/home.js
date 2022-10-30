@@ -11,7 +11,7 @@
 
       <div class="section-entry__btns">
         <a class="btn btn--play-now" target="_blank" href="https://www.blockmango.com/">เล่นเลย!</a>
-        <a class="btn btn--browse-minigames" href="#/minigame">มินิเกมส์</a>
+        <a class="btn btn--browse-minigames" href="#/minigames">มินิเกมส์</a>
       </div>
     </div>
   </section>`;
@@ -85,10 +85,18 @@
 
     const minigames = create_memo(() => props.minigames()?.slice(0, 4) || []);
 
-    const el__minigame = __minigames_page({ minigames, header: 'มินิเกมส์แนะนำ' });
-    el__minigame.style.setProperty('padding-top', null);
-    el__minigame.style.setProperty('padding-bottom', null);
-    el__minigame.classList.add('main-section');
+    const minigames_header = document.createElement('h3');
+    minigames_header.textContent = 'มินิเกมส์แนะนำ';
+    minigames_header.style.setProperty('font-size', '1.75rem');
+
+    const minigames_link = document.createElement('a');
+    minigames_link.href = '#/minigames';
+    minigames_link.textContent = 'เพิ่มเติม';
+
+    const el__minigame = __minigames_page({
+      minigames,
+      header: [minigames_header, minigames_link],
+    });
 
     root.append(el__sec0, el__sec1, el__minigame);
 
