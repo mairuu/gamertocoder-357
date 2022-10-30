@@ -1,18 +1,18 @@
 (() => {
   const __tmpl__section2 = template //
-  `<section class="main-section" style="background-color: #161939;">
+  `<section class="minigames__section" style="background-color: #161939;">
       <div class="container">
-        <div class="minigame--header"></div>
-        <div class="minigames"></div>
+        <div class="minigames__header"></div>
+        <div class="minigames__container"></div>
       </div>
     </section>`;
 
   const __tmpl__minigame_entry = template //
-  `<a class="minigame">
-      <div class="minigame__backdrop"></div>
-      <div class="minigame__icon"></div>
-      <div class="minigame__content">
-        <span class="minigame--name"></span>
+  `<a class="minigame__card">
+      <div class="minigame__card--backdrop"></div>
+      <div class="minigame__card--icon"></div>
+      <div class="minigame__card__content">
+        <span class="minigame__card__content--name"></span>
       </div>
     </a>`;
 
@@ -30,7 +30,7 @@
     el.href = __app_ctx.ROUTER.history.create_href({ pathname: `/minigame/${props.minigame.no}` });
 
     el.style.setProperty('--icon-url', `url('${props.minigame.icon}')`);
-    el.querySelector('span.minigame--name').textContent = props.minigame.name;
+    el.querySelector('span.minigame__card__content--name').textContent = props.minigame.name;
 
     return el;
   }
@@ -50,7 +50,7 @@
   function MinigamesPage(props) {
     const el = clone_template(__tmpl__section2);
 
-    const el__minigame_container = el.querySelector('div.minigames');
+    const el__minigame_container = el.querySelector('div.minigames__container');
 
     const el__top_wave = clone_template(__tmpl__wave);
     el__top_wave.style.setProperty('transform', 'rotate(180deg)');
@@ -65,7 +65,7 @@
     el.append(el__bot_wave);
 
     if (props.header) {
-      el.querySelector('div.minigame--header').append(...props.header);
+      el.querySelector('div.minigames__header').append(...props.header);
     }
 
     create_effect(() => {

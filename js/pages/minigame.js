@@ -1,26 +1,27 @@
 (() => {
   const __tmpl__sec0 = template //
   `<div class="container">
-    <div class="hilight--backdrop"></div>
-    <h1 class="hilight--game-name"></h1>
+    <h1 class="minigame--title"></h1>
+    <div class="minigame--backdrop"></div>
 
-    <div class="hilight">
-      <div class="hiilght__decs">
-      
-        <div class="hilight__icon"><img alt="" /></div>
-        <p class="hilight--info"></p>
-
-        <div class="hilight--genres"></div>
+    <div class="minigame">
+      <div class="minigame__top">
+        <div class="minigame__top--icon">
+          <img alt="" />
+        </div>
+        <p class="minigame__top--info"></p>
+        <div class="minigame__top__genres"></div>
       </div>
 
-      <div class="hiilght__gall">
-        <div class="hilight__preview"></div>
-        <div class="hilight__preview--items"></div>
+      <div class="minigame__bot">
+        <div class="minigame__preview"></div>
+        <div class="minigame__preview--items"></div>
       </div>
+
     </div>
   </div>`;
 
-  function HilightPreviewItem(props) {
+  function minigamePreviewItem(props) {
     const el = document.createElement('div');
 
     el.onclick = () => {
@@ -28,7 +29,7 @@
       el.scrollIntoView();
     };
 
-    el.className = 'hilight__preview--item';
+    el.className = 'minigame__preview--item';
     el.style.setProperty('--image-url', `url('${props.image_url}')`);
 
     return el;
@@ -51,12 +52,13 @@
 
     const [preview_image_url, set_preview_image_url] = create_signal('');
 
-    const el__game_name = el.querySelector('.hilight--game-name');
-    const el__icon_img = el.querySelector('.hilight__icon > img');
-    const el__info = el.querySelector('p.hilight--info');
-    const el__genres = el.querySelector('.hilight--genres');
-    const el__preview = el.querySelector('.hilight__preview');
-    const el__preview__select = el.querySelector('.hilight__preview--items');
+    const el__game_name = el.querySelector('.minigame--title');
+    const el__icon_img = el.querySelector('.minigame__top--icon > img');
+    const el__info = el.querySelector('p.minigame__top--info');
+    const el__genres = el.querySelector('.minigame__top__genres');
+
+    const el__preview = el.querySelector('.minigame__preview');
+    const el__preview__select = el.querySelector('.minigame__preview--items');
 
     create_effect(() => {
       el__preview.style.setProperty('--image-url', `url('${preview_image_url()}')`);
@@ -77,7 +79,7 @@
 
       minigame.genre.forEach((genre) => {
         const el__pill = document.createElement('span');
-        el__pill.className = 'hilight--genre';
+        el__pill.className = 'minigame--genre';
         el__pill.textContent = genre;
 
         el__genres.append(el__pill);
@@ -85,7 +87,7 @@
 
       el__preview__select.textContent = '';
       minigame.images?.forEach((image_url) => {
-        const el = HilightPreviewItem({ image_url, set_preview_image_url });
+        const el = minigamePreviewItem({ image_url, set_preview_image_url });
 
         create_effect(() => {
           el.classList.toggle('selected', preview_image_url() === image_url);

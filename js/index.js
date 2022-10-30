@@ -31,6 +31,11 @@ const __app_ctx = (() => {
     document.getElementById('main').append(__minigame_page({ minigames, location }));
   });
 
+  router.add_route('/about', () => {
+    document.getElementById('main').textContent = '';
+    document.getElementById('main').append(__about_page({}));
+  });
+
   // default route
   router.add_route('*', () => {
     document.getElementById('main').textContent = 'unknown path ;c;';
