@@ -13,6 +13,7 @@
     <div class="minigame__card--icon"></div>
     <div class="minigame__card__content">
       <span class="minigame__card__content--name"></span>
+      <span class="minigame__card__content--genre"></span>
     </div>
   </a>`;
 
@@ -31,6 +32,8 @@
 
     el.style.setProperty('--icon-url', `url('${props.minigame.icon}')`);
     el.querySelector('span.minigame__card__content--name').textContent = props.minigame.name;
+    el.querySelector('span.minigame__card__content--genre').textContent =
+      props.minigame.genre.join(',  ');
 
     return el;
   }

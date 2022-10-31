@@ -58,4 +58,10 @@
 
 .minigame__card__content--name {
   font-size: 1.25rem;
+  display: block;
+}
+
+.minigame__card__content--genre {
+  color: #aaa;
+  font-size: 0.8rem;
 }
