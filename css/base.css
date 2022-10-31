@@ -92,6 +92,11 @@ h6 {
   display: none;
 }
 
+.social svg {
+  display: block;
+  margin: auto;
+}
+
 .social > a {
   height: min-content;
 }
