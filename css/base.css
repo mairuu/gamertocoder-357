@@ -23,6 +23,7 @@ body > nav {
   gap: 2rem;
   background-color: rgb(5, 6, 11, 0.5);
   z-index: 1000;
+  height: 64px;
 }
 
 body > footer {
@@ -70,4 +71,28 @@ h6 {
   font-weight: 400;
   color: #eee;
   background-color: transparent;
+}
+
+.links {
+  gap: 2rem;
+  display: none;
+}
+
+.burger {
+  padding: 0 !important;
+  margin-left: auto;
+  display: inline-block;
+
+  z-index: 4;
+  position: relative;
+}
+
+@media (min-width: 600px) {
+  .links {
+    display: flex;
+  }
+
+  .burger {
+    display: none;
+  }
 }
