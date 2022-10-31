@@ -1,4 +1,4 @@
-const __app_ctx = (() => {
+(() => {
   const router = create_router();
   const [minigames, set_minigames] = create_signal(null);
 
@@ -48,12 +48,5 @@ const __app_ctx = (() => {
     window.scrollTo({ top: 0 });
   }
 
-  const APP_CONTEXT = {};
-  APP_CONTEXT.ROUTER = router;
-
-  setTimeout(() => {
-    router.init();
-  });
-
-  return APP_CONTEXT;
+  setTimeout(() => router.init());
 })();

@@ -27,7 +27,7 @@
   function MinigameItem(props) {
     const el = clone_template(__tmpl__minigame_entry);
 
-    el.href = __app_ctx.ROUTER.history.create_href({ pathname: `/minigame/${props.minigame.no}` });
+    el.href = `#/minigame/${props.minigame.no}`;
 
     el.style.setProperty('--icon-url', `url('${props.minigame.icon}')`);
     el.querySelector('span.minigame__card__content--name').textContent = props.minigame.name;
