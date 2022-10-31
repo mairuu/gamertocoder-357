@@ -11,7 +11,7 @@
 
       <div class="home__section__hero__btns">
         <a class="btn btn--play-now" target="_blank" href="https://www.blockmango.com/">เล่นเลย!</a>
-        <a class="btn btn--browse-minigames" href="#/minigames">มินิเกมส์</a>
+        <a class="btn btn--browse-minigames" href="#/minigames">มินิเกม</a>
       </div>
     </div>
   </section>`;
@@ -140,7 +140,7 @@
     const el__sec2 = clone_template(__tmpl__section2);
 
     const el__minigames_header = document.createElement('h3');
-    el__minigames_header.textContent = 'มินิเกมส์แนะนำ';
+    el__minigames_header.textContent = 'มินิเกมแนะนำ';
     el__minigames_header.style.setProperty('font-size', '1.75rem');
 
     const el__minigames_link = document.createElement('a');
