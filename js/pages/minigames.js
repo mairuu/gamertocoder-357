@@ -48,9 +48,9 @@
    * @param {{ minigames: () => MinigameEntry[] | null }} props
    */
   function MinigamesPage(props) {
-    const el = clone_template(__tmpl__section2);
+    const el__sec0 = clone_template(__tmpl__section2);
 
-    const el__minigame_container = el.querySelector('div.minigames__container');
+    const el__minigame_container = el__sec0.querySelector('div.minigames__container');
 
     const el__top_wave = clone_template(__tmpl__wave);
     el__top_wave.style.setProperty('transform', 'rotate(180deg)');
@@ -61,11 +61,11 @@
     el__bot_wave.style.setProperty('position', 'absolute');
     el__bot_wave.style.setProperty('bottom', '0');
 
-    el.insertBefore(el__top_wave, el.firstChild);
-    el.append(el__bot_wave);
+    el__sec0.insertBefore(el__top_wave, el__sec0.firstChild);
+    el__sec0.append(el__bot_wave);
 
     if (props.header) {
-      el.querySelector('div.minigames__header').append(...props.header);
+      el__sec0.querySelector('div.minigames__header').append(...props.header);
     }
 
     create_effect(() => {
@@ -81,7 +81,10 @@
       });
     });
 
-    return el;
+    const fragments = document.createDocumentFragment();
+    fragments.append(el__sec0);
+
+    return fragments;
   }
 
   window.__minigames_page = MinigamesPage;

@@ -133,30 +133,29 @@
    * @param {{ minigames: () => MinigameEntry[] | null }} props
    */
   function HomePage(props) {
-    const root = document.createDocumentFragment();
+    const minigames = create_memo(() => props.minigames()?.slice(0, 4) || []);
 
     const el__sec0 = clone_template(__tmpl__section0);
     const el__sec1 = clone_template(__tmpl__section1);
     const el__sec2 = clone_template(__tmpl__section2);
 
-    const minigames = create_memo(() => props.minigames()?.slice(0, 4) || []);
+    const el__minigames_header = document.createElement('h3');
+    el__minigames_header.textContent = 'มินิเกมส์แนะนำ';
+    el__minigames_header.style.setProperty('font-size', '1.75rem');
 
-    const minigames_header = document.createElement('h3');
-    minigames_header.textContent = 'มินิเกมส์แนะนำ';
-    minigames_header.style.setProperty('font-size', '1.75rem');
-
-    const minigames_link = document.createElement('a');
-    minigames_link.href = '#/minigames';
-    minigames_link.textContent = 'เพิ่มเติม';
+    const el__minigames_link = document.createElement('a');
+    el__minigames_link.href = '#/minigames';
+    el__minigames_link.textContent = 'เพิ่มเติม';
 
     const el__minigame = __minigames_page({
-      minigames,
-      header: [minigames_header, minigames_link],
+      minigames: minigames,
+      header: [el__minigames_header, el__minigames_link],
     });
 
-    root.append(el__sec0, el__sec2, el__sec1, el__minigame);
+    const fragments = document.createDocumentFragment();
+    fragments.append(el__sec0, el__sec2, el__sec1, el__minigame);
 
-    return root;
+    return fragments;
   }
 
   window.__home_page = HomePage;
