@@ -52,6 +52,18 @@
    * @param {{ minigames: () => MinigameEntry[] | null, location: { params: Record<string, string>; pathname: string;} | null }} props
    */
   function MinigamePage(props) {
+    const minigame = create_memo(() => {
+      const minigame_no = parseInt(props.location.params.no);
+      return props.minigames()?.find((e) => e.no === minigame_no);
+    });
+
+    const breadcrub_links = create_memo(() => {
+      return [
+        { label: 'Home', href: '#/' },
+        { label: 'Minigames', href: '#/minigames' },
+        { label: minigame()?.name, href: `#/minigame/${minigame()?.no}`, active: true },
+      ];
+    });
     const [preview_image_url, set_preview_image_url] = create_signal('');
 
     const el__sec0 = clone_template(__tmpl__sec0);
@@ -64,23 +76,26 @@
     const el__minigame_preview = el__sec0.querySelector('.minigame__preview');
     const el__minigame_preview__items = el__sec0.querySelector('.minigame__preview--items');
 
+    el__minigame_name.parentElement.insertBefore(
+      __comp__breadcrub({ links: breadcrub_links }),
+      el__minigame_name
+    );
+
     create_effect(() => {
       el__minigame_preview.style.setProperty('--image-url', `url('${preview_image_url()}')`);
     });
 
     create_effect(() => {
-      const minigames = props.minigames();
-      const minigame_no = parseInt(props.location.params.no);
-      const minigame = minigames?.find((e) => e.no === minigame_no);
+      const _minigame = minigame();
 
-      if (!minigame) return;
-      set_preview_image_url(minigame.images?.[0]);
+      if (!_minigame) return;
+      set_preview_image_url(_minigame.images?.[0]);
 
-      el__minigame_name.textContent = minigame.name;
-      el__minigame_icon_img.src = minigame.icon;
-      el__minigame_info.textContent = minigame.description;
+      el__minigame_name.textContent = _minigame.name;
+      el__minigame_icon_img.src = _minigame.icon;
+      el__minigame_info.textContent = _minigame.description;
 
-      minigame.genre.forEach((genre) => {
+      _minigame.genre.forEach((genre) => {
         const el__genre_pill = document.createElement('span');
         el__genre_pill.className = 'minigame--genre';
         el__genre_pill.textContent = genre;
@@ -89,7 +104,7 @@
       });
 
       const minigame_preview_items =
-        minigame.images?.map((image_url) => {
+        _minigame.images?.map((image_url) => {
           const el__preview_item = MinigamePreviewItem({
             image_url,
             preview_image_url,

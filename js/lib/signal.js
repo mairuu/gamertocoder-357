@@ -72,10 +72,11 @@ function create_effect(fn) {
 /**
  * @template T
  * @param {() => T} fn
- * @returns {T}
+ * @returns {() => T}
  */
 function create_memo(fn) {
   const [value, set] = create_signal();
   create_effect(() => set(fn()));
+
   return value;
 }

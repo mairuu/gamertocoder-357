@@ -1,5 +1,7 @@
 @import url('./base.css');
 
+@import url('./breadcrumb.css');
+
 @import url('./home.css');
 @import url('./minigame.css');
 @import url('./minigames.css');

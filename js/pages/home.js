@@ -147,8 +147,8 @@
     el__minigames_link.href = '#/minigames';
     el__minigames_link.textContent = 'เพิ่มเติม';
 
-    const el__minigame = __minigames_page({
-      minigames: minigames,
+    const el__minigame = __comp__minigames({
+      minigames,
       header: [el__minigames_header, el__minigames_link],
     });
 

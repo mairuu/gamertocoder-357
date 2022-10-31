@@ -12,7 +12,7 @@ body {
   color: #eee;
 }
 
-nav {
+body > nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -23,12 +23,12 @@ nav {
   z-index: 1000;
 }
 
-footer {
+body > footer {
   text-align: center;
   padding-bottom: 2rem;
 }
 
-main {
+body > main {
   padding-top: 64px;
   min-height: 100vh;
 }
@@ -39,6 +39,16 @@ img {
 
 a {
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 .container {

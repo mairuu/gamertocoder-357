@@ -16,13 +16,7 @@
   router.add_route('/minigames/', () => {
     document.getElementById('main').textContent = '';
 
-    const minigames_header = document.createElement('h3');
-    minigames_header.textContent = 'มินิเกมส์';
-    minigames_header.style.setProperty('font-size', '1.75rem');
-
-    document
-      .getElementById('main')
-      .append(__minigames_page({ minigames, header: [minigames_header] }));
+    document.getElementById('main').append(__minigames_page({ minigames }));
   });
 
   // mingame
