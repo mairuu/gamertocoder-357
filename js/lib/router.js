@@ -4,6 +4,11 @@ function create_router() {
    */
   const routes = [];
 
+  const hooks = {
+    before_navigate: noop,
+    after_navigate: noop,
+  };
+
   const history = create_history();
   const [location, set_location] = create_signal(history.location);
 
@@ -14,7 +19,10 @@ function create_router() {
       const matched = match_path(route.path, create_path(current_location));
 
       if (matched) {
+        hooks.before_navigate();
         route.callback(matched);
+        hooks.after_navigate();
+
         return;
       }
     }
@@ -36,9 +44,13 @@ function create_router() {
     create_effect(find_controller);
   }
 
+  function noop() {}
+
   return {
     init,
     add_route,
+
+    hooks,
 
     get history() {
       return history;

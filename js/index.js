@@ -12,6 +12,7 @@ const __app_ctx = (() => {
     document.getElementById('main').append(__home_page({ minigames }));
   });
 
+  // minigames
   router.add_route('/minigames/', () => {
     document.getElementById('main').textContent = '';
 
@@ -22,7 +23,6 @@ const __app_ctx = (() => {
     document
       .getElementById('main')
       .append(__minigames_page({ minigames, header: [minigames_header] }));
-    window.scrollTo({ top: 0 });
   });
 
   // mingame
@@ -31,6 +31,7 @@ const __app_ctx = (() => {
     document.getElementById('main').append(__minigame_page({ minigames, location }));
   });
 
+  // about... why?
   router.add_route('/about', () => {
     document.getElementById('main').textContent = '';
     document.getElementById('main').append(__about_page({}));
@@ -40,6 +41,12 @@ const __app_ctx = (() => {
   router.add_route('*', () => {
     document.getElementById('main').textContent = 'unknown path ;c;';
   });
+
+  router.hooks.after_navigate = restore_scroll;
+
+  function restore_scroll() {
+    window.scrollTo({ top: 0 });
+  }
 
   const APP_CONTEXT = {};
   APP_CONTEXT.ROUTER = router;
