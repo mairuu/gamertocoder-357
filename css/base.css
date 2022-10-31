@@ -42,6 +42,11 @@ img {
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(28, 159, 229);
 }
 
 h1,
@@ -74,8 +79,21 @@ h6 {
 }
 
 .links {
+  display: flex;
   gap: 2rem;
   display: none;
+}
+
+.social {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-left: auto;
+  display: none;
+}
+
+.social > a {
+  height: min-content;
 }
 
 .burger {
@@ -88,7 +106,8 @@ h6 {
 }
 
 @media (min-width: 600px) {
-  .links {
+  .links,
+  .social {
     display: flex;
   }
 

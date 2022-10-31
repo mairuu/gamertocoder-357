@@ -14,6 +14,10 @@
   border-radius: 0.25rem;
 }
 
+.breadcrumb__item > a {
+  text-decoration: underline;
+}
+
 .breadcrumb__item + .breadcrumb__item::before {
   display: inline-block;
   padding-right: 0.5rem;

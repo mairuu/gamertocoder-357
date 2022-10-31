@@ -1,6 +1,6 @@
 (() => {
   const __tmpl__section0 = template //
-  `<section class="home__section home__section__hero">
+  `<section class="home__section home__section__hero" style="min-height: calc(100vh - 64px);">
     <div class="container">
       <div class="home__section__hero__logo">
         <img

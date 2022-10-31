@@ -12,8 +12,6 @@
 
 .minigame__card {
   position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
   text-decoration: none;
   color: inherit;
 }
@@ -26,7 +24,6 @@
 
   inset: 0px;
   background-size: cover;
-  background-image: var(--icon-url);
 }
 
 .minigame__card--icon {
@@ -37,8 +34,7 @@
 .minigame__card__content {
   position: relative;
   z-index: 2;
-  padding: 1rem;
-  background-color: rgb(5, 6, 11, 0.2);
+  padding: 1rem 0rem;
 }
 
 .minigame__card:hover .minigame__card--icon::before {
@@ -50,10 +46,16 @@
   position: absolute;
 
   transition: transform 50ms;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
+  border-radius: 2px;
 
   inset: 0px;
   background-size: cover;
   background-image: var(--icon-url);
+
+  box-shadow: 0px 12px 24px -4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0px 12px 24px -4px rgba(0, 0, 0, 0.5);
+}
+
+.minigame__card__content--name {
+  font-size: 1.25rem;
 }

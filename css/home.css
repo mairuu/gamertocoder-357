@@ -1,7 +1,7 @@
 .home__section {
   position: relative;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-top: 8rem;
+  padding-bottom: 6rem;
 }
 
 .home__section__hero::before {
@@ -106,6 +106,8 @@
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
+
+  z-index: 10;
 }
 
 .banner__icon > img {
