@@ -49,7 +49,7 @@ function compile_path(path) {
  *
  * @returns {{ params: Record<string, string>; pathname: string;} | null} */
 function match_path(pattern, pathname) {
-  const [matcher, param_names] = compile_path(pattern);
+  const [matcher, param_names] = typeof pattern === 'string' ? compile_path(pattern) : pattern;
   const match = pathname.match(matcher);
 
   if (!match) return null;

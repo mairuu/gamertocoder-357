@@ -1,6 +1,6 @@
 function create_router() {
   /**
-   * @type {{ path: string, callback: (match: { params: {}; pathname: string;}) => void }[]}
+   * @type {{ pattern: RoutePattern, callback: (match: { params: {}; pathname: string;}) => void }[]}
    */
   const routes = [];
 
@@ -16,7 +16,7 @@ function create_router() {
     const current_location = location();
 
     for (const route of routes) {
-      const matched = match_path(route.path, create_path(current_location));
+      const matched = match_path(route.pattern, create_path(current_location));
 
       if (matched) {
         hooks.before_navigate();
@@ -34,7 +34,7 @@ function create_router() {
    * @param {(match: { params: Record<string, string>; pathname: string;}) => void} callback
    */
   function add_route(path, callback) {
-    routes.push({ path, callback });
+    routes.push({ pattern: compile_path(path), callback });
   }
 
   function init() {
