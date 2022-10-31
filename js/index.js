@@ -10,6 +10,13 @@
   router.add_route('/', () => {
     document.getElementById('main').textContent = '';
     document.getElementById('main').append(__home_page({ minigames }));
+
+    // Todo: Implement hash linking appropriately
+    setTimeout(() => {
+      if (window.location.hash.includes('platform')) {
+        document.getElementById('platforms').scrollIntoView();
+      }
+    });
   });
 
   // minigames
@@ -25,10 +32,19 @@
     document.getElementById('main').append(__minigame_page({ minigames, location }));
   });
 
-  // about... why?
   router.add_route('/about', () => {
     document.getElementById('main').textContent = '';
     document.getElementById('main').append(__about_page({}));
+  });
+
+  router.add_route('/privacy', () => {
+    document.getElementById('main').textContent = '';
+    document.getElementById('main').append(__privacy_page({}));
+  });
+
+  router.add_route('/terms', () => {
+    document.getElementById('main').textContent = '';
+    document.getElementById('main').append(__terms_page({}));
   });
 
   // default route
@@ -36,9 +52,15 @@
     document.getElementById('main').textContent = 'unknown path ;c;';
   });
 
-  router.hooks.after_navigate = restore_scroll;
+  router.hooks.after_navigate = after_navigate;
 
-  function restore_scroll() {
+  let first_render = true;
+  function after_navigate() {
+    if (first_render) {
+      first_render = false;
+      return;
+    }
+
     window.scrollTo({ top: 0 });
   }
 

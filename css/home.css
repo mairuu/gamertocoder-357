@@ -20,14 +20,35 @@
 }
 
 .home__section__hero::after {
-  z-index: -1;
   content: '';
   position: absolute;
+
+  z-index: -1;
   inset: 0px;
+
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: 40vw;
+  background-position-y: 0%;
   background-image: url('https://cdngarenanow-a.akamaihd.net/webth/cdn/garena/gamertocoder/bmg-characters/benson_03.png');
+
+  opacity: 1;
+  animation-name: benso_entry;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 700ms;
+}
+
+@keyframes benso_entry {
+  0% {
+    opacity: 0.2;
+    background-position-y: 30%;
+  }
+
+  100% {
+    opacity: 1;
+    background-position-y: 0%;
+  }
 }
 
 .home__section__hero__logo {
@@ -130,6 +151,7 @@
 .banner__content > h1 {
   border-left: 4px solid;
   padding-left: 1rem;
+  margin-bottom: 0;
 }
 
 .home__section__download::after {
@@ -137,6 +159,7 @@
   content: '';
   position: absolute;
   inset: 0px;
+  opacity: var(--opacity, 1);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-x: 40vw;

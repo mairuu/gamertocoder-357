@@ -16,7 +16,7 @@ function create_router() {
     const current_location = location();
 
     for (const route of routes) {
-      const matched = match_path(route.pattern, create_path(current_location));
+      const matched = match_path(route.pattern, current_location.pathname);
 
       if (matched) {
         hooks.before_navigate();

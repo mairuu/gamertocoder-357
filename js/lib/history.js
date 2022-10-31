@@ -126,7 +126,11 @@ function create_history() {
    * @returns {Path}
    */
   function get_location() {
-    const { hash = '', pathname = '/', search = '' } = parse_path(window.location.hash.slice(1));
+    const path = window.location.hash.startsWith('#/')
+      ? window.location.hash.slice(1)
+      : window.location.hash;
+
+    const { hash = '', pathname = '/', search = '' } = parse_path(path);
     return { hash, pathname, search };
   }
 

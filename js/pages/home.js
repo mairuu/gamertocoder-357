@@ -19,7 +19,7 @@
   const __tmpl__section1 = template //
   `<section class="home__section home__section__download">
     <div class="container">
-      <h3 style="font-size: 1.75rem">เลือกแพลตฟอร์ม</h3>
+      <h3 id="platforms" style="font-size: 1.75rem">เลือกแพลตฟอร์ม</h3>
 
       <div class="platforms">
         <a
@@ -100,7 +100,7 @@
         >
           <div class="banner__bg"></div>
           <div class="banner__content">
-            <h1>Customize</h1>
+            <h1>อวาตาร์</h1>
           </div>
         </a>
         <a
@@ -113,7 +113,7 @@
         >
           <div class="banner__bg"></div>
           <div class="banner__content">
-            <h1>Editor</h1>
+            <h1>การสร้าง</h1>
           </div>
         </a>
       </div>
