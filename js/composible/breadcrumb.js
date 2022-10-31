@@ -13,7 +13,7 @@
       props.links().forEach(({ href, label, active }) => {
         const el__list_item = document.createElement('li');
         el__list_item.className = 'breadcrumb__item';
-        el__list_item.classList.toggle('breadcrumb__item--active', active);
+        el__list_item.classList.toggle('breadcrumb__item--active', !!active);
 
         if (active) {
           el__list_item.textContent = label;

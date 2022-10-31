@@ -8,10 +8,13 @@
 }
 
 .breadcrumb__item {
-  flex-wrap: wrap;
   padding: 0.75rem 0;
   list-style: none;
   border-radius: 0.25rem;
+}
+
+.breadcrumb__item--active {
+  color: #77797a;
 }
 
 .breadcrumb__item > a {
