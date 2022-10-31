@@ -78,6 +78,7 @@
 }
 
 .btn--play-now {
+  color: #eee !important;
   background-color: red;
 }
 

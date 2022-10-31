@@ -126,5 +126,6 @@
   content: '';
   position: absolute;
   inset: 0px;
+  background-position-y: center;
   background-image: url('https://cdngarenanow-a.akamaihd.net/webth/cdn/garena/gamertocoder/bmg-wallpaper/02.jpg');
 }
